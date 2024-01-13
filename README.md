@@ -1,1 +1,1 @@
-# Cluster-Analysis-usin-R
+# Cluster-Analysis-using-R
