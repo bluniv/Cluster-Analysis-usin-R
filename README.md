@@ -9,7 +9,7 @@ This project involves a comprehensive analysis on cluster analysis techniques. T
 
 The dataset utilized for this analysis is the Walmart sales dataset, a rich source of information encompassing sales figures, temperature records, and fuel prices. The dataset was obtained from <u>https://www.kaggle.com/datasets/yasserh/walmart-dataset</u>
 
-## 2) Pair Plot
+## 2) Plotting of Data
 
 To initiate the exploration of the dataset, a pair plot was generated. This multivariate visualization allowed a thorough examination of relationships between different variables. The pair plot aids in understanding potential correlations and distributions within the data.  Two specific scatter plots were created to delve deeper into the relationship between sales and key variables:
 
