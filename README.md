@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-This project involves a comprehensive analysis of Walmart sales data with a focus on cluster analysis techniques. The primary goal is to identify patterns, relationships, and distinctive groups within the dataset. The main steps and findings are summarized below.
+This project involves a comprehensive analysis on cluster analysis techniques. The primary goal is to identify patterns, relationships, and distinctive groups within the dataset. The main steps and findings are summarized below.
 
 ## 1) Getting Data
 
