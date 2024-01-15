@@ -1,0 +1,161 @@
+
+```{r}
+library(cluster)
+install.packages("factoextra")
+library(factoextra)
+
+```
+
+```{r}
+data=read.csv(file.choose(),header=TRUE)
+data
+```
+
+
+```{r}
+data1 = data[-c(1,2,4)]
+data1
+```
+
+```{r}
+is.null(data1)
+
+```
+```{r}
+pairs(data1)
+```
+
+```{r}
+plot(data1$Weekly_Sales~ data1$Temperature, data = data1)
+
+```
+
+```{r}
+plot(data1$Weekly_Sales~ data1$Fuel_Price, data = data1)
+
+```
+
+
+
+```{r}
+m=apply(data1,2,mean)
+m
+```
+
+
+```{r}
+sd=apply(data1,2,sd)
+sd
+```
+
+
+```{r}
+norm=scale(data1,m,sd)
+```
+
+
+```{r}
+distance=dist(norm)
+distance
+```
+
+
+```{r}
+hc.c= hclust(distance)
+plot(hc.c,hang=-1)
+```
+
+
+```{r}
+hc.a= hclust(distance,method='average')
+plot(hc.a,hang=-1)
+
+```
+
+
+```{r}
+member = cutree(hc.c,3)
+table(member)
+```
+
+
+```{r}
+aggregate(norm,list(member),mean)
+```
+
+
+```{r}
+aggregate(data1,list(member),mean)
+```
+
+Scree Plot
+Scree plot will allow us to see the variabilities in clusters, suppose if we increase the number of clusters within-group sum of squares will come down.
+
+```{r}
+wss = (nrow(norm)-1)*sum(apply(norm,2,var))
+for (i in 2:20) wss[i] = sum(kmeans(norm, centers=i)$withinss)
+plot(1:20, wss, type="b", xlab="Number of Clusters", ylab="Within groups sum of squares")
+```
+So in this data ideal number of clusters should be 3, 4, or 5.
+
+
+```{r}
+set.seed(123)
+kc=kmeans(norm,3,nstart=25)
+kc
+
+```
+
+
+
+```{r}
+plot(data1$Weekly_Sales~ data1$Temperature,data= data1,col=kc$cluster)
+```
+
+
+```{r}
+plot(data1$Weekly_Sales~ data1$Fuel_Price,data= data1,col=kc$cluster)
+```
+
+```{r}
+fviz_cluster(kc, data = norm)
+```
+
+
+
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
